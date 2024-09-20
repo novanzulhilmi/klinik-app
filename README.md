@@ -3,6 +3,8 @@
 ## Laravel Framework
 
 - Screenshoot Tampilan Depan (welcome)
+- Screenshoot Halaman Register
+- Screenshoot Halaman Login
 - Screenshoot Dashboard (home)
 - Screenshoot Lihat Data Pasien
 
