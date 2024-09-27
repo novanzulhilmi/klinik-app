@@ -35,7 +35,7 @@
                                         <td>{{ $item->jenis_kelamin }}</td>
                                         <td>{{ $item->umur }}</td>
                                         <?php $foto=$item->foto ? $item->foto : 'nothing.webp' ?>
-                                        <td><img src="/storage/images/{{ $foto }}" alt="Nothing" width="100px" style="aspect-ratio:1/1"></td>
+                                        <td><img src="{{ $item->foto ? asset('storage/images/' . $item->foto) : asset('storage/images/nothing.webp') }}" alt="'storage/images/nothing.webp'" width="70px" style="aspect-ratio: 1/1"></td>
                                         <td>{{ $item->alamat }}</td>
                                         <td>
                                             <a href="/pasien/{{ $item->id }}/edit" class="btn btn-warning btn-sm ml-2">

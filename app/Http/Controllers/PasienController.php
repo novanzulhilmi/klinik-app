@@ -35,7 +35,7 @@ class PasienController extends Controller
             'no_pasien'     => 'required|unique:pasiens,no_pasien',
             'nama'          => 'required',
             'umur'          => 'required|numeric',
-            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
+            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'alamat'        => 'nullable',
             'foto'          => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5000',
         ]);
@@ -48,11 +48,11 @@ class PasienController extends Controller
         $pasien->alamat         = $requestData['alamat'];
         $pasien->save();
         if ($request->hasFile('foto')) {
-            $request->file('foto')->move('images/', $request->file('foto')->getClientOriginalName());
+            $request->file('foto')->move('storage/images/', $request->file('foto')->getClientOriginalName());
             $pasien->foto = $request->file('foto')->getClientOriginalName();
             $pasien->save();
         }
-        return redirect('/pasien')->with('pesan', 'Data sudah disimpan');
+        return redirect('/pasien')->with('pesan', 'Data sudah disimpan');
     }
 
     /**

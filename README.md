@@ -1,14 +1,17 @@
 # <p align="center">Tugas Klinik App</p>
 
-## Laravel Framework
+## Fitur yang tersedia :
 
-- Screenshoot Tampilan Depan (welcome)
-- Screenshoot Halaman Register
-- Screenshoot Halaman Login
-- Screenshoot Dashboard (home)
-- Screenshoot Lihat Data Pasien
+- Tampilan Depan (welcome)
+- Halaman Register
+- Halaman Login
+- Dashboard (home)
+- Lihat Data Pasien
+- Tambah data dengan foto
+- Tambah data tanpa foto
 
 #### Hasil tampilan proyek dibawah ini :
-- https://docs.google.com/presentation/d/1R4nfy4J_VGIRh5EHgIfvlfKK89_8u4-65zFka3XIeU8/edit?usp=sharing
+- https://docs.google.com/presentation/d/1MVBxjsNUypaJwZKSN7xSIsHQesm8jZs392B7rI61veQ/edit?usp=sharing
 
-### By Novan Nur Zulhilmi Yardana
+### By Novan Nur Zulhilmi Yardana - Laravel Framework
+Pembuatan aplikasi klinik menggunakan framework Laravel akan mempermudah manajemen data di klinik. Pembuatan aplikasi ini dilakukan oleh Studend Day Programming Website - SMA Plus PGRI Cibinong.

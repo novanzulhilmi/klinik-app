@@ -44,12 +44,12 @@
                                 <label for="jenis_kelamin">Jenis Kelamin</label><br>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="jenis_kelamin" id="laki_laki"
-                                        value="laki-laki" {{ old('jenis_kelamin') === 'laki-laki' ? 'checked' : '' }}>
+                                        value="Laki-laki" {{ old('jenis_kelamin') === 'laki-laki' ? 'checked' : '' }}>
                                     <label class="form-check-label" for="laki_laki">Laki-laki</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="jenis_kelamin" id="perempuan"
-                                        value="perempuan" {{ old('jenis_kelamin') === 'perempuan' ? 'checked' : '' }}>
+                                        value="Perempuan" {{ old('jenis_kelamin') === 'perempuan' ? 'checked' : '' }}>
                                     <label class="form-check-label" for="perempuan">Perempuan</label>
                                 </div>
                                 <span class="text-danger">{{ $errors->first('jenis_kelamin') }}</span>
