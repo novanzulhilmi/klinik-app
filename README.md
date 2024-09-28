@@ -15,8 +15,8 @@
 ## Fitur yang diupdate :
 - Edit Data
 - Delete Data
--- Plus     : Gambar berhasil terupdate
--- Minus    : Gambar sebelumnya tidak terhapus, masih berada di folder "Storage"
+- Plus     : Gambar berhasil terupdate
+- Minus    : Gambar sebelumnya tidak terhapus, masih berada di folder "Storage"
 
 #### Hasil tampilan proyek dibawah ini :
 - https://docs.google.com/presentation/d/1MVBxjsNUypaJwZKSN7xSIsHQesm8jZs392B7rI61veQ/edit?usp=sharing
