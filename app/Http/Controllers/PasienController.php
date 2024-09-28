@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pasien;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PasienController extends Controller
 {
@@ -68,7 +69,8 @@ class PasienController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['pasien'] = \App\Models\Pasien::findOrFail($id);
+        return view ('pasien_edit', $data);
     }
 
     /**
@@ -76,7 +78,30 @@ class PasienController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Novan Nur Zulhilmi Yardana - XI.U4
+        $requestData = $request->validate([
+            'no_pasien'     => 'required|unique:pasiens,no_pasien,' .$id,
+            'nama'          => 'required',
+            'umur'          => 'required|numeric',
+            'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
+            'alamat'        => 'nullable',
+            'foto'          => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5000',
+        ]);
+        $pasien = \App\Models\Pasien::findOrfail ($id);//mencari objek yang ada di database, jika tidak ketemu maka otomatis akan error.
+        $pasien->fill($requestData);
+        //karena sudah divalidasi boleh null, maka akan di cek apakah foto file yang diupload ada atau tidak
+        //Jika ada maka file foto lama akan terhapus dan foto akan terganti oleh file yang baru 
+        if ($request->hasFile('foto')) {
+            Storage::delete($pasien->foto);
+            $request->file('foto')->move('storage/images/', $request->file('foto')->getClientOriginalName());
+            $pasien->foto = $request->file('foto')->getClientOriginalName();
+            // $request->file('foto')->move('storage/images/', $request->file('foto')->store('public/images')());
+            // $pasien->foto = $request->file('foto')->store('public/images');
+            // Storage::delete($pasien->foto);
+            // $pasien->foto = $request->file('foto')->store('public');
+        }
+        $pasien->save();
+        return redirect('/pasien')->with('pesan', 'Data sudah disimpan');
     }
 
     /**
