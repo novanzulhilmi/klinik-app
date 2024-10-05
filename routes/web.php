@@ -1,5 +1,5 @@
 <?php
-
+// Novan Nur Zulhilmi Yardana XIU4
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -11,4 +11,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('pasien', App\Http\Controllers\PasienController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('pasien', App\Http\Controllers\PasienController::class);
+});

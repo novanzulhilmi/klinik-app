@@ -38,7 +38,7 @@ class PasienController extends Controller
             'umur'          => 'required|numeric',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'alamat'        => 'nullable',
-            'foto'          => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5000',
+            'foto'          => 'nullable|image|mimes:jpeg,png,jpg,webp,gif,svg|max:5000',
         ]);
         // $pasien = new \App\Models\Pasien(); //membuat objek kosong dengan data yang sudah divalidasi
         $pasien = new Pasien();//membuat objek kosong dengan cara import class Pasien
@@ -49,10 +49,13 @@ class PasienController extends Controller
         $pasien->alamat         = $requestData['alamat'];
         $pasien->save();
         if ($request->hasFile('foto')) {
-            $request->file('foto')->move('storage/images/', $request->file('foto')->getClientOriginalName());
-            $pasien->foto = $request->file('foto')->getClientOriginalName();
-            $pasien->save();
+            $fotoName = time() . '.' . $request->foto->extension();
+            // $request->file('foto')->move('storage/images/', $request->file('foto')->getClientOriginalName());
+            $request->file('foto')->storeAs('public/images', $fotoName);
+            $pasien->foto = $fotoName;
+           
         }
+        $pasien->save();
         return redirect('/pasien')->with('pesan', 'Data sudah disimpan');
     }
 
@@ -85,23 +88,31 @@ class PasienController extends Controller
             'umur'          => 'required|numeric',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
             'alamat'        => 'nullable',
-            'foto'          => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5000',
+            'foto'          => 'nullable|image|mimes:jpeg,png,jpg,webp,gif,svg|max:5000',
         ]);
         $pasien = \App\Models\Pasien::findOrfail ($id);//mencari objek yang ada di database, jika tidak ketemu maka otomatis akan error.
-        $pasien->fill($requestData);
+        $pasien->no_pasien      = $requestData['no_pasien'];
+        $pasien->nama           = $requestData['nama'];
+        $pasien->umur           = $requestData['umur'];
+        $pasien->jenis_kelamin  = $requestData['jenis_kelamin'];
+        $pasien->alamat         = $requestData['alamat'];
         //karena sudah divalidasi boleh null, maka akan di cek apakah foto file yang diupload ada atau tidak
         //Jika ada maka file foto lama akan terhapus dan foto akan terganti oleh file yang baru 
         if ($request->hasFile('foto')) {
-            Storage::delete($pasien->foto);
-            $request->file('foto')->move('storage/images/', $request->file('foto')->getClientOriginalName());
-            $pasien->foto = $request->file('foto')->getClientOriginalName();
+            $fotoName = time() . '.' . $request->foto->extension();
+            $request->file('foto')->storeAs('public/images/', $fotoName);
+            $Image = str_replace('/storage', '', $pasien->foto);
+            if (Storage::exists('public/images/' . $Image)){
+                Storage::delete('/public/images/' . $Image);
+            }
+            $pasien->foto = $fotoName;
             // $request->file('foto')->move('storage/images/', $request->file('foto')->store('public/images')());
             // $pasien->foto = $request->file('foto')->store('public/images');
             // Storage::delete($pasien->foto);
             // $pasien->foto = $request->file('foto')->store('public');
         }
         $pasien->save();
-        return redirect('/pasien')->with('pesan', 'Data sudah disimpan');
+        return redirect('/pasien')->with('pesan', 'Data sudah diubah');
     }
 
     /**
