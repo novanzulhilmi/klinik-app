@@ -17,7 +17,7 @@
 - Perubahan Layout halaman
 
 #### Hasil tampilan proyek dibawah ini :
-- https://docs.google.com/presentation/d/1BTzWOElkz0VMvC9ZSpsJSC1kjtARXK0FlSlXIOm4Hiw/edit?usp=sharing
+- https://docs.google.com/presentation/d/12kgZdS0KncW81YUu4NBLiSfpy8Xm2aNjN2tE71p_uaM/edit?usp=sharing
 
 ### By Novan Nur Zulhilmi Yardana - Laravel Framework
 Pembuatan aplikasi klinik menggunakan framework Laravel akan mempermudah manajemen data di klinik. Pembuatan aplikasi ini dilakukan oleh Student Day Programming Website - SMA Plus PGRI Cibinong.
