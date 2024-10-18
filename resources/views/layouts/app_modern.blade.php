@@ -61,9 +61,39 @@
               </a>
             </li>
 
+            {{-- Novan Nur Zulhilmi Yardana XIU4 --}}
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Data Poli</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/poli" aria-expanded="false">
+                  <span>
+                      <i class="ti ti-building"></i>
+                  </span>
+                  <span class="hide-menu">Poli</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/poli/create" aria-expanded="false">
+                <span>
+                  <i class="ti ti-plus"></i>
+                </span>
+                <span class="hide-menu">Tambah Poli</span>
+              </a>
+            </li>
+          
             <li class="nav-small-cap">
                 <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                <span class="hide-menu">Keluar</span>
+                <span class="hide-menu">User</span>
+              </li>
+              <li class="sidebar-item">
+              <a class="sidebar-link" href="/users" aria-expanded="false">
+                  <span>
+                      <i class="ti ti-user"></i>
+                  </span>
+                  <span class="hide-menu">Pengguna</span>
+              </a>
               </li>
               <li class="sidebar-item">
                 <a class="sidebar-link" href="{{ route('logout') }}" aria-expanded="false">
@@ -72,7 +102,7 @@
                   </span>
                   <span class="hide-menu">Logout</span>
                 </a>
-              </li>
+            </li>
 
               <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 Logout
