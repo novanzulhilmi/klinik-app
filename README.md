@@ -34,7 +34,7 @@
 - Fix error image not found
 
 #### Hasil tampilan proyek dibawah ini :
-- https://docs.google.com/presentation/d/1BTzWOElkz0VMvC9ZSpsJSC1kjtARXK0FlSlXIOm4Hiw/edit?usp=sharing
+- https://docs.google.com/presentation/d/1EzcFX0f6FQyISiYzLnMJu5xMAaeRxsjVzKhb5xx7jvA/edit?usp=sharing
 
 ### By Novan Nur Zulhilmi Yardana - Laravel Framework
 Pembuatan aplikasi klinik menggunakan framework Laravel akan mempermudah manajemen data di klinik. Pembuatan aplikasi ini dilakukan oleh Student Day Programming Website - SMA Plus PGRI Cibinong.
