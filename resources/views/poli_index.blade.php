@@ -8,10 +8,12 @@
                 <div class="card">
                     {{-- <div class="card-header">Form Poli</div> --}}
                     <div class="card-body">
-                        <h3>Data Poli</h3>
                         <div class="row mb-3 mt-3">
+                            <div class="col-md-6 h3">
+                            Data Poli                                
+                            </div>
                             <div class="col-md-6">
-                                <a href="/poli/create" class="btn btn-primary btn-sm">Tambah Poli</a>
+                                <a href="/poli/create" class="btn btn-primary btn-sm float-end">Tambah Poli</a>
                             </div>
                         </div>
                         <table class="table table-striped">
@@ -28,7 +30,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama }}</td>
-                                        <td>{{ $item->biaya }}</td>
+                                        <td>@currency($item->biaya)</td>
                                         <td>
                                             {{-- Novan Nur Zulhilmi Yardana XIU4 --}}
                                             <a href="/poli/{{ $item->id }}/edit" class="btn btn-warning btn-sm ml-2">

@@ -28,6 +28,11 @@
 - Edit Data Poli
 - Delete Data Poli
 
+- #### Update Pertemuan 12
+- Biaya with Real Time Currency Number
+- Placement Button - Add Poli
+- Fix error image not found
+
 #### Hasil tampilan proyek dibawah ini :
 - https://docs.google.com/presentation/d/1BTzWOElkz0VMvC9ZSpsJSC1kjtARXK0FlSlXIOm4Hiw/edit?usp=sharing
 

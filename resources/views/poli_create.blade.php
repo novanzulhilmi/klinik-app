@@ -23,8 +23,10 @@
                                     id="biaya" name="biaya" value="{{ old('biaya') }}">
                                 <span class="text-danger">{{ $errors->first('biaya') }}</span>
                             </div>
-
-                            <button type="submit" class="btn btn-primary">SIMPAN</button>
+                            <div class="form-group mt-1 mb-3 float-end">
+                            <button type="reset" class ="btn btn-warning">RESET</button>
+                            <button type="submit" class="btn btn-primary">SIMPAN</button>&nbsp;
+                            </div>
                         </form>
                     </div>
                 </div>

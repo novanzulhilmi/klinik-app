@@ -12,7 +12,7 @@ class PoliController extends Controller
      */
     public function index()
     {
-        $poli = \App\Models\Poli::latest()->paginate(10);
+        $poli = \App\Models\Poli::orderBy('nama', 'DESC')->paginate(10);
         $data['poli'] = $poli;
         return view ('poli_index', $data);
         // Novan Nur Zulhilmi Yardana XIU4
@@ -51,7 +51,7 @@ class PoliController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified resouwrce.
      */
     public function edit(string $id)
     {
