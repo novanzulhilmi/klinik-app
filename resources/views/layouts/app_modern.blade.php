@@ -100,25 +100,14 @@
                   <span>
                       <i class="ti ti-user"></i>
                   </span>
-                  <span class="hide-menu">Pengguna</span>
+                  <span class="hide-menu">{{ auth()->user()->name}}</span>
               </a>
               </li>
-              <li class="sidebar-item">
-                <a class="sidebar-link" href="{{ route('logout') }}" aria-expanded="false">
-                  <span>
-                    <i class="ti ti-alert-circle"></i>
-                  </span>
-                  <span class="hide-menu">Logout</span>
-                </a>
-            </li>
-
-              <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                Logout
-            </a>
-            
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                {{ csrf_field() }}
-            </form>
+              <a href="#"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                class="btn btn-outline-primary mx-3 mt-2 d-block"
+                >Logout</a>
+              <form id="logout-form" action=" {{ route('logout') }}" method="POST" class="d-none">@csrf</form>
           </ul>
         </nav>
         <!-- End Sidebar navigation -->
