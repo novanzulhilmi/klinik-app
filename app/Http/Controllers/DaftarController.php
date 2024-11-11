@@ -15,7 +15,7 @@ class DaftarController extends Controller
         if (request() -> has ('q')) {
             $daftar = \App\Models\Daftar::search(request('q'))->paginate(20);
         } else {
-            $daftar = \App\Models\Daftar::orderBy('pasien_id')->paginate(10);
+            $daftar = \App\Models\Daftar::orderBy('pasien_id', 'ASC')->paginate(10);
         }
         $data ['daftar'] = $daftar;
         return view('daftar_index', $data);
@@ -26,7 +26,9 @@ class DaftarController extends Controller
      */
     public function create()
     {
-        //
+        $data ['listPasien'] = \App\Models\Pasien::orderBy('nama', 'ASC')->get();
+        $data ['listPoli'] = \App\Models\Poli::orderBy('nama', 'ASC')->get();
+        return view('daftar_create', $data);
     }
 
     /**
@@ -34,7 +36,17 @@ class DaftarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Novan Nur Zulhilmi Yardana - XI.U4
+        $requestData = $request->validate([
+            'tanggal_daftar' => 'required',
+            'pasien_id' => 'required',
+            'poli_id' => 'required',
+            'keluhan' => 'required',
+        ]);
+        $daftar = new Daftar();
+        $daftar->fill($requestData);
+        $daftar->save();
+        return redirect('/daftar')->with('pesan', 'Data berhasil tersimpan');
     }
 
     /**
@@ -66,6 +78,7 @@ class DaftarController extends Controller
      */
     public function destroy(Daftar $daftar)
     {
-        //
+        $daftar->delete();
+        return redirect('/daftar')->with('pesan', 'Data berhasil dihapus');
     }
 }

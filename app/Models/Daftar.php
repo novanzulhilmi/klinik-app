@@ -15,7 +15,9 @@ class Daftar extends Model
     use SearchableTrait;
     #Novan Nur Zulhilmi Yardana - XIU4
     protected $guarded = [];
-    protected $fillable = [];
+    protected $fillable = [
+        'nama'
+    ];
 
     protected $casts = [
         'tanggal_daftar' => 'date'
@@ -35,11 +37,11 @@ class Daftar extends Model
 
     public function pasien(): BelongsTo
     {
-        return $this->belongsTo(Pasien::class);
+        return $this->belongsTo(Pasien::class)->withDefault();
     }
 
     public function poli(): BelongsTo
     {
-        return $this->belongsTo(Poli::class);
+        return $this->belongsTo(Poli::class)->withDefault();
     }
 }

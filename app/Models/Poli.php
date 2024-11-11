@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use App\Models\Daftar;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Model;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+// Novan Nur Zulhilmi Yardana - XI.U4
 
 class Poli extends Model
 {
@@ -19,9 +21,9 @@ class Poli extends Model
         ],
     ];
 
-    public function daftar(): HasMany
+    public function daftar()
     {
-        return $this->hasMany(Daftar::class);
+        return $this->hasOne(Daftar::class);
     }
 }
 

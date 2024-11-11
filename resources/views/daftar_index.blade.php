@@ -44,6 +44,15 @@
                                         <td>{{ $item->tanggal_daftar->format('d M Y') }}</td>
                                         <td>{{ $item->poli->nama }}</td>
                                         <td>{{ $item->keluhan }}</td>
+                                        <td>
+                                            <form action="/daftar/{{ $item->id }}" method="post" class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger btn-sm ml-2"
+                                                onclick="return confirm('Yakin ingin menghapus data?')">
+                                                Hapus
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
