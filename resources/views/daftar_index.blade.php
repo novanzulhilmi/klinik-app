@@ -32,6 +32,7 @@
                                     <th>Tanggal Daftar</th>
                                     <th>Poli</th>
                                     <th>Keluhan</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,6 +46,9 @@
                                         <td>{{ $item->poli->nama }}</td>
                                         <td>{{ $item->keluhan }}</td>
                                         <td>
+                                            <a href="/daftar/{{ $item->id }}" class="btn btn-warning btn-sm ml-2">
+                                                Detail
+                                            </a>
                                             <form action="/daftar/{{ $item->id }}" method="post" class="d-inline">
                                             @csrf
                                             @method('delete')

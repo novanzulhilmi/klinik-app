@@ -41,9 +41,7 @@
                             </div>
                             <div class="form-group mt-3 mb-3">
                                 <label for="keluhan">Keluhan</label>
-                                <textarea name="keluhan" rows="2" class="form-control">
-                                    {{ old('keluhan') }}
-                                </textarea>
+                                <textarea name="keluhan" rows="2" class="form-control">{{ old('keluhan') }}</textarea>
                                 <span class="text-danger">{{ $errors->first('keluhan') }}</span>
                             </div>
                             <button type="submit" class="btn btn-primary">SIMPAN</button>

@@ -15,7 +15,7 @@ class DaftarController extends Controller
         if (request() -> has ('q')) {
             $daftar = \App\Models\Daftar::search(request('q'))->paginate(20);
         } else {
-            $daftar = \App\Models\Daftar::orderBy('pasien_id', 'ASC')->paginate(10);
+            $daftar = \App\Models\Daftar::latest('tanggal_daftar', 'ASC')->paginate(10);
         }
         $data ['daftar'] = $daftar;
         return view('daftar_index', $data);
@@ -26,8 +26,8 @@ class DaftarController extends Controller
      */
     public function create()
     {
-        $data ['listPasien'] = \App\Models\Pasien::orderBy('nama', 'ASC')->get();
-        $data ['listPoli'] = \App\Models\Poli::orderBy('nama', 'ASC')->get();
+        $data['listPasien'] = \App\Models\Pasien::orderBy('nama', 'ASC')->get();
+        $data['listPoli'] = \App\Models\Poli::orderBy('nama', 'ASC')->get();
         return view('daftar_create', $data);
     }
 
@@ -44,17 +44,18 @@ class DaftarController extends Controller
             'keluhan' => 'required',
         ]);
         $daftar = new Daftar();
-        $daftar->fill($requestData);
+        $daftar->fill(attributes:$requestData);
         $daftar->save();
-        return redirect('/daftar')->with('pesan', 'Data berhasil tersimpan');
+        return redirect('/daftar')->with(key: 'pesan', value:'Data berhasil tersimpan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Daftar $daftar)
+    public function show($id)
     {
-        //
+        $data['daftar'] = \App\Models\Daftar::findOrFail($id);
+        return view('daftar_show', $data);
     }
 
     /**
@@ -68,9 +69,16 @@ class DaftarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Daftar $daftar)
+    public function update(Request $request, $id)
     {
-        //
+        $requestData = $request->validate([
+            'tindakan' => 'required',
+            'diagnosis' => 'required',
+        ]);
+        $daftar = \App\Models\Daftar::findOrFail($id);
+        $daftar->fill($requestData);
+        $daftar->save();
+        return redirect('/daftar')->with('pesan', 'Data berhasil tersimpan');
     }
 
     /**

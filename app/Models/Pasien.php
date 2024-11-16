@@ -15,7 +15,6 @@ class Pasien extends Model
     use SearchableTrait;
     // Novan Nur Zulhilmi Yardana - XI.U4
     protected $guarded = [];
-    protected $fillable = [];
 
     protected $searchable = [
         'columns' => [
