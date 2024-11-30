@@ -21,17 +21,18 @@
 - Edit Data Poli
 - Delete Data Poli
 
-## Fitur yang diupdate :
-- #### Data Poli :
-- Lihat Data Poli
-- Tambah Data Poli
-- Edit Data Poli
-- Delete Data Poli
+- #### Data Pendaftaran
+- Lihat Data Pendaftaran
+- Tambah Data Pendaftaran
+- Detail and Edit Data Pendaftaran
+- Delete Data Pendaftaran
 
-- #### Update Pertemuan 12
-- Biaya with Real Time Currency Number
-- Placement Button - Add Poli
-- Fix error image not found
+## Fitur yang diupdate :
+- #### Data Pendaftaran
+- Lihat Data Pendaftaran
+- Tambah Data Pendaftaran
+- Detail and Edit Data Pendaftaran
+- Delete Data Pendaftaran
 
 #### Hasil tampilan proyek dibawah ini :
 - https://docs.google.com/presentation/d/1BTzWOElkz0VMvC9ZSpsJSC1kjtARXK0FlSlXIOm4Hiw/edit?usp=sharing

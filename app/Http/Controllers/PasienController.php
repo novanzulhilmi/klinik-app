@@ -16,7 +16,7 @@ class PasienController extends Controller
         if (request() -> has ('p')) {
             $pasien = \App\Models\Pasien::search(request('p'))->paginate(20);
         } else {
-            $pasien = \App\Models\Pasien::orderBy('nama', 'ASC')->paginate(10);
+            $pasien = \App\Models\Pasien::latest()->paginate(10);
         }
 
         $data['pasien'] = $pasien;

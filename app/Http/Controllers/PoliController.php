@@ -15,7 +15,7 @@ class PoliController extends Controller
         if (request() -> has ('po')) {
             $poli = \App\Models\Poli::search(request('po'))->paginate(20);
         } else {
-            $poli = \App\Models\Poli::orderBy('nama', 'ASC')->paginate(10);
+            $poli = \App\Models\Poli::latest()->paginate(10);
         }
 
         $data['poli'] = $poli;
